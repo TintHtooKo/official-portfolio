@@ -1,0 +1,31 @@
+.name{
+    color: white;
+    margin-bottom: 10px;
+}
+
+.bar-bg{
+    background-color: white;
+    height: 35px;
+    border-radius: 20px;
+}
+
+.bar{
+    height: 100%;
+    background-color: yellow;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    padding: 0 10px;
+    border-radius: 10px;
+
+}   
+
+@media (max-width:576px){
+ .name{
+    font-size: 1.2rem;
+ }
+ .bar-bg{
+    height: 30px;
+ }
+ 
+}
