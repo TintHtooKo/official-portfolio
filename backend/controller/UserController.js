@@ -12,6 +12,7 @@ const UserController = {
             let {name,email,password,role} = req.body
             let user = await User.register(name,email,password,role)
             let token = createToken(user._id)
+            res.cookie('jwt',token,{httpOnly : true, maxAge : 24 * 60 * 60 * 1000})
             return res.status(200).json({user,token})
         } catch (e) {
             console.log(e.message);
@@ -24,6 +25,7 @@ const UserController = {
             const {email,password} = req.body
             let user = await User.login(email,password)
             let token = createToken(user._id)
+            res.cookie('jwt',token,{httpOnly : true, maxAge : 24 * 60 * 60 * 1000})
             return res.status(200).json({user,token})
         } catch (e) {
             console.log(e.message);
@@ -76,6 +78,13 @@ const UserController = {
             return res.status(500).json({msg : e.message})    
         }
     },
+    logout : async(req,res)=>{
+        res.cookie('jwt','',{maxAge : 1})
+        return res.json({msg:'Logout'})
+    },
+    me : async(req,res)=>{
+        return res.json(req.user)
+    }
 }
 
 module.exports = UserController

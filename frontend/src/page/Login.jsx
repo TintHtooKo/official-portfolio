@@ -1,6 +1,7 @@
 import axios from '../helper/axios'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import { AuthContext } from '../context/AuthContext'
 
 
 
@@ -9,6 +10,7 @@ export default function Login() {
   let [email,setEmail] = useState('')
   let [password,setPassword] = useState('')
   let [error,setError] = useState(null)
+  let {dispatch} = useContext(AuthContext)
   let navigate = useNavigate()
 
   const LoginHandler = async(e) =>{
@@ -19,6 +21,7 @@ export default function Login() {
         withCredentials : true
       })
       if(res.status == 200){
+        dispatch({type:'LOGIN' , payload : res.data.user})
         navigate('/knowledge')
       }
     } catch (e) {

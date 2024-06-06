@@ -1,11 +1,26 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import './NavBar.css'
-import { Link, NavLink } from 'react-router-dom'
+import { Link, NavLink, useNavigate } from 'react-router-dom'
+import axios from 'axios'
+import { AuthContext } from '../../context/AuthContext'
 
 
 
 
 export default function NavBar() {
+  let navigate = useNavigate()
+  let {user,dispatch} = useContext(AuthContext)
+  const LogoutHandler = async()=>{
+    try {
+      let logout = await axios.post('/user/logout')
+      if(logout.status == 200){
+        dispatch({type:'LOGOUT'})
+        navigate('/login')
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
   const handleNavLinkClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -29,7 +44,7 @@ export default function NavBar() {
                 Knowledge
               </NavLink>
             </li>
-            <li>
+            {!user ? (<li>
                 <NavLink
                   to='/login'
                   className={({ isActive }) =>
@@ -38,12 +53,14 @@ export default function NavBar() {
                 >
                   Login
                 </NavLink>
-              </li>
-                 <li>
-                <button className='text-white hover:text-yellow-400'>
-                  Logout
-                </button>
-              </li>
+              </li>) : (
+                <li>
+                  <button onClick={LogoutHandler} className='text-white hover:text-yellow-400'>
+                    Logout
+                  </button>
+                </li>
+              )}
+                 
 
                
 
