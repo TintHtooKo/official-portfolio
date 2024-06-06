@@ -1,9 +1,30 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import axios from '../helper/axios'
+import React, { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 
 export default function Login() {
+
+  let [email,setEmail] = useState('')
+  let [password,setPassword] = useState('')
+  let [error,setError] = useState(null)
+  let navigate = useNavigate()
+
+  const LoginHandler = async(e) =>{
+    try {
+      e.preventDefault()
+      let data = {email,password}
+      let res = await axios.post('/user/login',data,{
+        withCredentials : true
+      })
+      if(res.status == 200){
+        navigate('/knowledge')
+      }
+    } catch (e) {
+      setError(e.response.data.msg);
+    }
+  }
  
   return (
     <>
@@ -15,15 +36,15 @@ export default function Login() {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" action="#" method="POST">
+        <form onSubmit={LoginHandler} className="space-y-6" action="#" method="POST">
 
-        {/* {!!error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+        {!!error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
             <strong className="font-bold bg-red-100">Error! </strong>
             <span className="block sm:inline bg-red-100">{error}</span>
             <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
               <svg className="fill-current h-6 w-6 text-red-500" role="button" onClick={()=>!setError()} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Close</title><path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/></svg>
             </span>
-          </div>} */}
+          </div>}
         
           <div>
             <label htmlFor="email" className="block text-sm font-medium leading-6 text-white">
@@ -31,6 +52,8 @@ export default function Login() {
             </label>
             <div className="mt-2">
               <input
+              value={email}
+              onChange={e=>setEmail(e.target.value)}
                 id="email"
                 name="email"
                 type="email"
@@ -49,6 +72,8 @@ export default function Login() {
             </div>
             <div className="mt-2">
               <input
+              value={password}
+              onChange={e=>setPassword(e.target.value)}
                 id="password"
                 name="password"
                 type="password"

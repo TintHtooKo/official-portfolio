@@ -15,7 +15,7 @@ export default function Hero() {
           <div className='image'><img src={Profile}/></div>
           <div className='me'>
             <h1 style={{color:'white'}}>My name is Tint Htoo Ko</h1>
-            <h1 style={{color:'white'}}>I am {' '} 
+            <h1 style={{color:'white'}} >I am {' '} 
               <span style={{color:'yellow'}}> '
                 <Typewriter 
                 words={['Web Developer','FullStack Developer']} 
