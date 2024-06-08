@@ -55,7 +55,7 @@ UserSchema.statics.register = async function(name,email,password,role){
 }
 
 UserSchema.statics.login = async function(email,password){
-    let user = await this.findOne({email})
+    let user = await this.findOne({email}).populate('role')
     if(!user){
         throw new Error('Email does not register')
     }

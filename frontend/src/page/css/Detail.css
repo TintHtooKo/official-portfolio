@@ -22,6 +22,10 @@
     .post div button{   
         margin-left: 0;
     }
+
+    .cmt p{
+       font-size: 12px; 
+    }
 }
 
     

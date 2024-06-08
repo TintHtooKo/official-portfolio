@@ -82,9 +82,14 @@ const UserController = {
         res.cookie('jwt','',{maxAge : 1})
         return res.json({msg:'Logout'})
     },
-    me : async(req,res)=>{
-        return res.json(req.user)
-    }
+    me: async (req, res) => {
+        try {
+            let user = await User.findById(req.user._id).populate('role');
+            return res.json(user);
+        } catch (e) {
+            return res.status(500).json({ msg: e.message });
+        }
+    },
 }
 
 module.exports = UserController

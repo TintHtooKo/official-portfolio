@@ -7,9 +7,12 @@ import Detail from '../page/Detail'
 import Login from '../page/Login'
 import Register from '../page/Register'
 import { AuthContext } from '../context/AuthContext'
+import Contact from '../page/Contact'
+import Admin from '../admin/Admin'
 
 export default function Route() {
     let {user} = useContext(AuthContext)
+    const isAdmin = user && user.role && user.role.role === 'admin';
     const router = createBrowserRouter([
       {
         path : '/',
@@ -26,6 +29,14 @@ export default function Route() {
           {
             path : '/detail/:id',
             element : user ? <Detail/> : <Login/>,
+          },
+          {
+            path : '/contact',
+            element : user ? <Contact/> : <Login/>,
+          },
+          {
+            path : '/admin-panel',
+            element : isAdmin ? <Admin/> : <Login/>,
           },
           {
             path : '/login',

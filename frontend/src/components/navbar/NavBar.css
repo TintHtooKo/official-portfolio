@@ -2,6 +2,55 @@
     position: fixed;
     z-index: 1000;
     width: 100%;
-    height: 60px;
+    height: 100px;
     background-color: #1B1F23;
+}
+
+.navbar{
+    right: 35%;
+}
+
+.btn{
+    border: 1px solid yellow;
+    padding: 10px 20px;
+    border-radius: 50px;
+    background-color: yellow;
+    color: black;
+    font-family: serif;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+.btn:hover{
+    transform: scale(1.1);
+}
+
+.img{
+    width: 10%;
+    position: relative;
+    bottom: 10px;
+}
+
+@media(max-width:992px){
+    .img{
+        width: 15%;
+    }
+    .btn{
+        padding: 5px 15px;
+    }
+    .navbar{
+        right: 28%;
+    }
+    .nav{
+        height: 80px;
+    }
+}
+
+@media(max-width:576px){
+    .img{
+        width: 20%;
+    }
+    .nav{
+        height: 60px;
+    }
 }

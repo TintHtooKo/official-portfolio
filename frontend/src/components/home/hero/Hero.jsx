@@ -11,7 +11,7 @@ export default function Hero() {
       })
       return (
         <div className='hero' data-aos="fade-down" id='hero'>
-          <div className=' mt-20'>
+          <div className=' mt-28'>
           <div className='image'><img src={Profile}/></div>
           <div className='me'>
             <h1 style={{color:'white'}}>My name is Tint Htoo Ko</h1>
