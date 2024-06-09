@@ -9,6 +9,8 @@ import Register from '../page/Register'
 import { AuthContext } from '../context/AuthContext'
 import Contact from '../page/Contact'
 import Admin from '../admin/Admin'
+import UserEdit from '../admin/UserEdit'
+import Message from '../admin/Message'
 
 export default function Route() {
     let {user} = useContext(AuthContext)
@@ -37,6 +39,14 @@ export default function Route() {
           {
             path : '/admin-panel',
             element : isAdmin ? <Admin/> : <Login/>,
+          },
+          {
+            path : '/admin-panel/user-edit/:id',
+            element : isAdmin ? <UserEdit/> : <Login/>,
+          },
+          {
+            path : '/admin-panel/message',
+            element : isAdmin ? <Message/> : <Login/>,
           },
           {
             path : '/login',

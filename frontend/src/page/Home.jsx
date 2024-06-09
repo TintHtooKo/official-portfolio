@@ -3,6 +3,7 @@ import Hero from '../components/home/hero/Hero'
 import About from '../components/home/about/About'
 import Skill from '../components/home/skill/Skill'
 import Portfolio from '../components/home/portfolio/Portfolio'
+import ContactMail from '../components/home/contact/contactMail'
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <hr style={{color : 'gray'}} className=' mt-10' />
         <Portfolio/>
         <hr style={{color : 'gray'}} className=' mt-10' />
+        <ContactMail/>
     </div>
   )
 }

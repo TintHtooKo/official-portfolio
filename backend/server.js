@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser')
 const cors = require('cors')
 const Role = require('./route/RoleRoute')
 const User = require('./route/UserRoute')
+const Contact = require('./route/ContactRoute')
 require('dotenv').config()
 
 mongoose.connect(mongoURL).then(()=>{
@@ -23,4 +24,5 @@ app.use(express.json())
 app.use(cookieParser())
 app.use('/role',Role)
 app.use('/user',User)
+app.use('/contact',Contact)
 

@@ -66,9 +66,12 @@ export default function NavBar() {
 
           {/* for admin nav bar */}
           <div>
-          {!!isAdmin &&  <ul>
+          {!!isAdmin &&  <ul className=' flex space-x-10'>
               <li>
                 <Link to='/admin-panel'>AdHome</Link>
+              </li>
+              <li>
+                <Link to='/admin-panel/message'>Message</Link>
               </li>
             </ul>}
           </div>

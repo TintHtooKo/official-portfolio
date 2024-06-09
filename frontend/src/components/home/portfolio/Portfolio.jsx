@@ -9,10 +9,16 @@ import FullStack from '../../../assets/fullStack.png'
 import 'aos/dist/aos.css'
 import Aos from 'aos'
 
+
+
+
 export default function Portfolio() {
+ 
+
   useEffect(()=>{
     Aos.init({duration:2000})
   })
+
   return (
     <div className='portfolio'>
       <h1 data-aos='slide-down'>Projects</h1>
@@ -50,11 +56,9 @@ export default function Portfolio() {
         </div>
 
       </div>
-
-        
-        
+      
         <div className='more'>
-          <a href='https://github.com/tinthtooko'>More <i className="fas fa-angle-double-right" style={{backgroundColor:'transparent'}}></i></a>
+          <a href='https://github.com/tinthtooko'>More</a>
         </div>
     </div>
   )

@@ -13,7 +13,7 @@
 .btn{
     border: 1px solid yellow;
     padding: 10px 20px;
-    border-radius: 50px;
+    border-radius: 5px;
     background-color: yellow;
     color: black;
     font-family: serif;
@@ -22,7 +22,7 @@
 }
 
 .btn:hover{
-    transform: scale(1.1);
+    border-radius: 20px;
 }
 
 .img{

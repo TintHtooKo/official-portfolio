@@ -18,7 +18,7 @@ export default function Hero() {
             <h1 style={{color:'white'}} >I am {' '} 
               <span style={{color:'yellow'}}> '
                 <Typewriter 
-                words={['Web Developer','FullStack Developer']} 
+                words={['Web Developer','Full Stack Developer']} 
                 loop={true} 
                 cursor 
                 typeSpeed={120}

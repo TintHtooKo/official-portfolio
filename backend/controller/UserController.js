@@ -39,7 +39,7 @@ const UserController = {
             if(!mongoose.Types.ObjectId.isValid(id)){
                 return res.status(400).json({msg : 'Invalid id'})
             }
-            let user = await User.findById(id)
+            let user = await User.findById(id).populate('role')
             if(!user){
                 return res.status(400).json({msg : 'User does not exist'})
             }
@@ -54,7 +54,7 @@ const UserController = {
             if(!mongoose.Types.ObjectId.isValid(id)){
                 return res.status(400).json({msg : 'Invalid id'})
             }
-            let user = await User.findByIdAndUpdate(id,{...req.body})
+            let user = await User.findByIdAndUpdate(id,{...req.body}).populate('role')
             if(!user){
                 return res.status(400).json({msg : 'User does not exist'})
             }

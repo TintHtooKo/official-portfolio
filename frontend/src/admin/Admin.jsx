@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './css/Admin.css'
 import axios from '../helper/axios'
 import * as XLSX from 'xlsx'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 
 export default function Admin() {
@@ -99,7 +99,11 @@ export default function Admin() {
                         <td className="whitespace-nowrap px-2 md:px-6 py-4">{data.name}</td>
                         <td className="whitespace-nowrap px-2 md:px-6 py-4">{data.email}</td>
                         <td className="whitespace-nowrap px-2 md:px-6 py-4">{data.role.role}</td>
-                        <td className="whitespace-nowrap px-2 md:px-6 py-4 text-yellow-400">Edit</td>
+                        <td className="whitespace-nowrap px-2 md:px-6 py-4 text-yellow-400">
+                          <Link to={`/admin-panel/user-edit/${data._id}`}>
+                            Edit
+                          </Link>
+                        </td>
                         <td className="whitespace-nowrap px-2 md:px-6 py-4 text-red-600">
                           <button onClick={() => handleDeleteClick(data._id)}>
                             Delete

@@ -1,0 +1,60 @@
+.contact img{
+    width: 50%;
+}
+
+.contact a {
+    position: relative;
+    border: 1px solid yellow;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: yellow;
+    color: black;
+    transition: 0.5s;
+    left: 800px;
+    bottom: 30px;
+}
+
+.contact a:hover{
+    border-radius: 30px ;
+}
+
+.contact div{
+    margin-left: 500px;
+}
+
+.contact img{
+    margin-left: 350px;
+}
+
+@media(max-width:992px){
+    .contact img{
+        margin-left: 200px;
+    }
+
+    .contact div{
+        margin-left: 150px;
+    }
+
+    .contact a{
+        left: 500px;
+    }
+}
+
+@media(max-width:576px){
+    .contact img{
+        margin-left: 100px;
+    }
+
+    .contact div{
+        font-size: 10px;
+        margin-left: 40px;
+    }
+
+    .contact a{
+        font-size: 10px;
+        padding: 5px 10px;
+        left: 250px;
+    }
+}
+

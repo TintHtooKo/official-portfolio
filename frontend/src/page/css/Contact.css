@@ -1,0 +1,33 @@
+.contact{
+    cursor: pointer;
+}
+
+.contact img{
+    position: relative;
+    top: 150px;
+    width: 80%;
+    left: 30px;
+    
+}
+
+.contact div{
+    position : relative;
+    top: 150px;
+    left: 150px;
+}
+
+@media(max-width: 992px){
+    .contact img{
+        width: 100%;
+    }
+
+    .contact div{
+        left: 90px;
+    }
+}
+
+@media(max-width:576px){
+    .contact img{
+        display: none;
+    }
+}
