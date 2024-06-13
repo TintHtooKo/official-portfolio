@@ -7,6 +7,8 @@ const cors = require('cors')
 const Role = require('./route/RoleRoute')
 const User = require('./route/UserRoute')
 const Contact = require('./route/ContactRoute')
+const Me = require('./route/MeRoute')
+const Position = require('./route/PositionRoute')
 require('dotenv').config()
 
 mongoose.connect(mongoURL).then(()=>{
@@ -20,9 +22,11 @@ app.use(cors({
     origin : "http://localhost:5173",
     credentials : true
 }))
+app.use(express.static('public'))
 app.use(express.json())
 app.use(cookieParser())
 app.use('/role',Role)
 app.use('/user',User)
 app.use('/contact',Contact)
-
+app.use('/position',Position)
+app.use('/me',Me)

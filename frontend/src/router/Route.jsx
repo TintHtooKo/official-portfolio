@@ -11,6 +11,11 @@ import Contact from '../page/Contact'
 import Admin from '../admin/Admin'
 import UserEdit from '../admin/UserEdit'
 import Message from '../admin/Message'
+import MessageDetail from '../admin/MessageDetail'
+import Profile from '../admin/Profile'
+import EditNi from '../admin/EditNi'
+import PositionEdit from '../admin/PositionEdit'
+import PositionCreate from '../admin/PositionCreate'
 
 export default function Route() {
     let {user} = useContext(AuthContext)
@@ -37,6 +42,14 @@ export default function Route() {
             element : user ? <Contact/> : <Login/>,
           },
           {
+            path : '/login',
+            element : !user && <Login/>,
+          },
+          {
+            path : '/register',
+            element : !user && <Register/>,
+          },
+          {
             path : '/admin-panel',
             element : isAdmin ? <Admin/> : <Login/>,
           },
@@ -49,13 +62,26 @@ export default function Route() {
             element : isAdmin ? <Message/> : <Login/>,
           },
           {
-            path : '/login',
-            element : !user && <Login/>,
+            path : '/admin-panel/message-detail/:id',
+            element : isAdmin ? <MessageDetail/> : <Login/>,
           },
           {
-            path : '/register',
-            element : !user && <Register/>,
+            path : '/admin-panel/profile',
+            element : isAdmin ? <Profile/> : <Login/>,
           },
+          {
+            path : '/admin-panel/edit-name-image/:id',
+            element : isAdmin ? <EditNi/> : <Login/>,
+          },
+          {
+            path : '/admin-panel/edit-create',
+            element : isAdmin ? <PositionCreate/> : <Login/>,
+          },
+          {
+            path : '/admin-panel/edit-position/:id',
+            element : isAdmin ? <PositionEdit/> : <Login/>,
+          },
+          
         ]
       }
     ])

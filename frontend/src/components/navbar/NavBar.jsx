@@ -73,6 +73,9 @@ export default function NavBar() {
               <li>
                 <Link to='/admin-panel/message'>Message</Link>
               </li>
+              <li>
+                <Link to='/admin-panel/profile'>Profile</Link>
+              </li>
             </ul>}
           </div>
           </div>

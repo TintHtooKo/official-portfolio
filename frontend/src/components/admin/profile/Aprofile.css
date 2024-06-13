@@ -1,0 +1,54 @@
+.p-btn{
+    font-size: 1rem;
+    border: 1px solid yellow;
+    background-color: yellow;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-weight: bold;
+    transition: 0.5s;
+    
+}
+
+.p-btn:hover{
+    border-radius: 40px;
+}
+
+.delete-btn{
+    font-size: 1rem;
+    border: 1px solid red;
+    background-color: red;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-weight: bold;
+    transition: 0.5s;
+    
+}
+
+.delete-btn:hover{
+    border-radius: 40px;
+}
+
+
+@media(max-width:576px){
+    .p-profile div p{
+        font-size: 1rem;
+        font-weight: 800;
+    }
+    .pos{
+        top: 230px;
+    }
+
+    .pos div a{
+        font-size: 12px;
+    }
+
+    .pos div button{
+        font-size: 12px;
+    }
+
+    .new{
+        left: 20px;
+        font-size: 12px;
+        top: 7px;
+    }
+}

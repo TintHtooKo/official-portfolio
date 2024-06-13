@@ -1,6 +1,6 @@
 import axios from '../helper/axios';
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import * as XLSX from 'xlsx'
 
 export default function Message() {
@@ -87,7 +87,7 @@ export default function Message() {
                 )}
 
           <div className=' overflow-hidden' >
-            <table className="min-w-full text-white text-left text-sm md:text-lg font-light text-surface dark:text-white">
+            <table className="min-w-full cursor-pointer text-white text-left text-sm md:text-lg font-light text-surface dark:text-white">
               <thead className="border-b border-neutral-200 font-medium dark:border-white/10">
                 <tr>
                   <th scope="col" className="px-2 md:px-6 py-4">No</th>
@@ -99,35 +99,44 @@ export default function Message() {
                   <th scope="col" className="px-2 md:px-6 py-4">Date</th>
                 </tr>
               </thead>
-              <tbody>
-                    {
-                        !!msg && msg.map((msg,i)=>{
-                            return(
-                                <tr key={msg._id} className="border-b border-neutral-200 dark:border-white/10">
-                                    <td className="whitespace-nowrap px-2 md:px-6 py-4 font-medium">{i+1}</td>
-                                    <td className="whitespace-nowrap px-2 md:px-6 py-4">{msg.name}</td>
-                                    <td className="whitespace-nowrap px-2 md:px-6 py-4">{msg.email}</td>
-                                    <td className="whitespace-nowrap px-2 md:px-6 py-4">{msg.phone}</td>
-                                    <td className="whitespace-nowrap px-2 md:px-6 py-4">{msg.whatsapp}</td>
-                                    <td className="whitespace-nowrap w-32 px-2 md:px-6 py-4 ">
-                                        <div className="relative group">
-                                            <p className="truncate max-w-xs">{msg.message}</p>
-                                            <span className="hidden group-hover:block absolute bg-black text-white text-xs rounded py-1 px-4 z-10">
-                                                {msg.message}
-                                            </span>
-                                        </div>
-                                    </td>
-                                    <td className="whitespace-nowrap px-2 md:px-6 py-4">{formatDate(msg.createdAt)}</td>
-                                    <td className="whitespace-nowrap px-2 md:px-6 py-4 text-red-600">
-                                        <button onClick={()=>deleteHandler(msg._id)}>
-                                        Delete
-                                        </button>
-                                    </td>
-                                    </tr>
-                            )
-                        })
-                    }
-              </tbody>
+              {              
+                      msg && msg.length > 0 ? (
+                        msg.map((msg,i)=>{
+                          return(
+                            <tbody>
+                              <tr key={msg._id} className="border-b border-neutral-200 dark:border-white/10">
+                                  <td className="whitespace-nowrap px-2 md:px-6 py-4 font-medium">{i+1}</td>
+                                  <td className="whitespace-nowrap px-2 md:px-6 py-4">{msg.name}</td>
+                                  <td className="whitespace-nowrap px-2 md:px-6 py-4">{msg.email}</td>
+                                  <td className="whitespace-nowrap px-2 md:px-6 py-4">{msg.phone}</td>
+                                  <td className="whitespace-nowrap px-2 md:px-6 py-4">{msg.whatsapp}</td>
+                                  <td className="whitespace-nowrap w-32 px-2 md:px-6 py-4 ">
+                                      <div className="relative group">
+                                          <p className="truncate max-w-xs">{msg.message}</p>
+                                          <span className="hidden group-hover:block absolute bg-black text-white text-xs rounded py-1 px-4 z-10">
+                                              {msg.message}
+                                          </span>
+                                      </div>
+                                  </td>
+                                  <td className="whitespace-nowrap px-2 md:px-6 py-4">{formatDate(msg.createdAt)}</td>
+                                  <td className="whitespace-nowrap px-2 md:px-6 py-4 text-yellow-300">
+                                      <Link to={`/admin-panel/message-detail/${msg._id}`} >
+                                      Detail
+                                      </Link>
+                                  </td>
+                                  <td className="whitespace-nowrap px-2 md:px-6 py-4 text-red-600">
+                                      <button onClick={()=>deleteHandler(msg._id)}>
+                                      Delete
+                                      </button>
+                                  </td>
+                              </tr>
+                              </tbody>
+                          )
+                      })
+                      ) : (
+                        <p className=' text-white text-center w-full'> There is no message</p>
+                      )                        
+                    }             
             </table>
           </div>
         </div>
