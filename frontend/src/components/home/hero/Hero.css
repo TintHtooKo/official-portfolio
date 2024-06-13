@@ -29,10 +29,6 @@
 }
 
 @media (max-width:576px){
-    .hero{
-        flex-direction: column;
-        gap: 50px;
-    }
 
     .image img{
         width: 250px;

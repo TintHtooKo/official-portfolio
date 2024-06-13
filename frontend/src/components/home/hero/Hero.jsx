@@ -32,7 +32,7 @@ export default function Hero() {
     };
     fetchPos();
   }, []);
-
+ 
   useEffect(() => {
     Aos.init({ duration: 2000 }); 
   }, []);
@@ -40,6 +40,19 @@ export default function Hero() {
   const positionWords = positions.map(p => p.position);
 
   return (
+
+    // <div data-aos="fade-down">
+    //   <div>
+    //   {
+    //       data && data.map((d,i)=>(
+    //         <div key={i} className='image'><img src={import.meta.env.VITE_BACKEND_URL_ACCESS + d.profile} alt="Profile" /></div>
+    //       ))
+    //     }
+    //   </div>
+    // </div>
+
+
+
     <div className='hero' data-aos="fade-down" id='hero'>
       <div className='mt-28'>
         {
@@ -54,7 +67,7 @@ export default function Hero() {
           {positionWords.length > 0 && (
             <h1 style={{ color: 'white' }}>
               I am {' '}
-              <span style={{ color: 'yellow' }}>
+              <span style={{ color: 'yellow' }}> 
                 ' 
                 <Typewriter 
                   words={positionWords} 
