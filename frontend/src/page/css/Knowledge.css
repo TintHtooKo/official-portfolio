@@ -24,7 +24,7 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 576px) {
 .knowledge {
     grid-template-columns: 1fr;
 }
@@ -33,10 +33,15 @@
     margin-top: 10px;
 }
 
+.know-height{
+        margin-top: 10px;
+}
+
 .category,
 .other {
     display: none;
 }
+
 }
 
 

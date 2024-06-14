@@ -16,6 +16,8 @@ import Profile from '../admin/Profile'
 import EditNi from '../admin/EditNi'
 import PositionEdit from '../admin/PositionEdit'
 import PositionCreate from '../admin/PositionCreate'
+import SkillAdd from '../admin/SkillAdd'
+import SkillEdit from '../admin/SkillEdit'
 
 export default function Route() {
     let {user} = useContext(AuthContext)
@@ -80,6 +82,14 @@ export default function Route() {
           {
             path : '/admin-panel/edit-position/:id',
             element : isAdmin ? <PositionEdit/> : <Login/>,
+          },
+          {
+            path : '/admin-panel/skill-add',
+            element : isAdmin ? <SkillAdd/> : <Login/>,
+          },
+          {
+            path : '/admin-panel/skill-edit/:id',
+            element : isAdmin ? <SkillEdit/> : <Login/>,
           },
           
         ]

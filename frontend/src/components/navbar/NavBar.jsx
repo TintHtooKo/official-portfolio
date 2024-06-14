@@ -131,7 +131,7 @@ export default function NavBar() {
 
               <div>
               <div>
-                <img src={MENU} className=' menubar' onClick={toggleMenu}/>
+                <img src={MENU} className=' me-5 menubar' onClick={toggleMenu}/>
               </div>
               </div>
               </div>         

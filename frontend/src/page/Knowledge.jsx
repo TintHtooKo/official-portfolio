@@ -11,7 +11,7 @@ export default function Knowledge() {
     <div className=' knowledge bg-black'>
 
         {/* for category */}
-        <div className='text-center mt-28 '>
+        <div className=' know-height text-center mt-28 '>
             <div className=' category fixed mx-5 pt-2 rounded-lg bg-slate-600'>
                 <h1 className=' mt-5 font-serif text-lg cursor-default text-yellow-400'>Category</h1>
                 <div className=' mx-20 mt-4 flex space-x-3'>

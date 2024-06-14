@@ -54,7 +54,7 @@ export default function Admin() {
   return (
     <div className="h-screen bg-black flex items-center justify-center p-4">
       <div className="overflow-x-auto w-full">
-        <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
+        <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8  mob-admin">
           <h1 className=' text-yellow-400 font-serif text-2xl text-center'>All User Table</h1>
           <button onClick={downloadExcel} className="bg-yellow-400 text-black py-2 px-4 rounded mb-4">
             Download Excel

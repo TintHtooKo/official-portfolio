@@ -14,7 +14,7 @@ const SkillBar = ({ skillName, proficiency }) => {
             <div className='bar'  style={{width: proficiency + '%'}}>{proficiency}%</div>
         </div>
     </div>
-  );
+  ); 
 };
 
 export default SkillBar;

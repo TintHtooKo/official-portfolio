@@ -9,6 +9,12 @@
     
 }
 
+.pos{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-left: 20px;
+}
+
 .p-btn:hover{
     border-radius: 40px;
 }
@@ -26,6 +32,12 @@
 
 .delete-btn:hover{
     border-radius: 40px;
+}
+
+@media(max-width:992px){
+    .pos{
+        grid-template-columns: 1fr;
+    }
 }
 
 
@@ -51,4 +63,9 @@
         font-size: 12px;
         top: 7px;
     }
+
+    .pos{
+        grid-template-columns: 1fr;
+    }
+
 }

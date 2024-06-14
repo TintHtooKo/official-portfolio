@@ -1,6 +1,7 @@
 import axios from '../helper/axios'
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom'
+import './css/Admin.css'
 
 export default function PositionEdit() {
   let {id} = useParams()
@@ -11,6 +12,7 @@ export default function PositionEdit() {
     let fetchPosition = async() =>{
       try {
         let res = await axios.get(`/position/detail/${id}`)
+        console.log(res.data);
         setData(res.data.position);
       } catch (e) {
         console.log(e);
@@ -42,7 +44,7 @@ export default function PositionEdit() {
         </h2>
       </div>
 
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm mob-admin">
         <form onSubmit={updateHandler}  className="space-y-6">
 
           <div>

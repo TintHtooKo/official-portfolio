@@ -9,6 +9,7 @@ const User = require('./route/UserRoute')
 const Contact = require('./route/ContactRoute')
 const Me = require('./route/MeRoute')
 const Position = require('./route/PositionRoute')
+const SkillBar = require('./route/SkillBarRoute')
 require('dotenv').config()
 
 mongoose.connect(mongoURL).then(()=>{
@@ -29,4 +30,5 @@ app.use('/role',Role)
 app.use('/user',User)
 app.use('/contact',Contact)
 app.use('/position',Position)
+app.use('/skillbar',SkillBar)
 app.use('/me',Me)

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import axios from '../helper/axios'
 import React, { useState } from 'react'
+import './css/Admin.css'
 
 export default function PositionCreate() {
     let [position,setPosition] = useState('')
@@ -16,7 +17,7 @@ export default function PositionCreate() {
                 navigate('/admin-panel/profile')
             }
         } catch (e) {
-            console.log(e);
+            console.log(e); 
         }
     }
 
@@ -28,7 +29,7 @@ export default function PositionCreate() {
         </h2>
       </div>
 
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm mob-admin">
         <form  onSubmit={PositionCreateHandler} className="space-y-6">
 
           <div>

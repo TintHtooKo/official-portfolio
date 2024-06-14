@@ -69,6 +69,10 @@
 
 @media(max-width:576px){
 
+    .nav{
+        position: static;
+    }
+
     .img{
         display: none;
     }
@@ -83,7 +87,6 @@
     .mob-menu{
         display: block;
         position: relative;
-        top: 60px;
         opacity: 0;
         max-height: 0;
         overflow: hidden;
