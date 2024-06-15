@@ -18,6 +18,7 @@ import PositionEdit from '../admin/PositionEdit'
 import PositionCreate from '../admin/PositionCreate'
 import SkillAdd from '../admin/SkillAdd'
 import SkillEdit from '../admin/SkillEdit'
+import ProjectAdd from '../admin/ProjectAdd'
 
 export default function Route() {
     let {user} = useContext(AuthContext)
@@ -90,6 +91,10 @@ export default function Route() {
           {
             path : '/admin-panel/skill-edit/:id',
             element : isAdmin ? <SkillEdit/> : <Login/>,
+          },
+          {
+            path : '/admin-panel/add-project',
+            element : isAdmin ? <ProjectAdd/> : <Login/>,
           },
           
         ]

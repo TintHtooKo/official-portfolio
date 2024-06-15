@@ -1,7 +1,6 @@
 const removeFile = require('../helper/removeFile')
 const Me = require('../model/Me')
 const mongoose = require('mongoose')
-const fs = require('fs').promises
 
 const MeController = {
     index : async(req,res)=>{
