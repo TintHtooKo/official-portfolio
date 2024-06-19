@@ -1,0 +1,57 @@
+/* Base styles */
+.image-container {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    width: 100%; /* Make the image container full width */
+    max-width: 600px; /* Set a maximum width for larger screens */
+    margin: 0 auto; /* Center the container */
+    cursor: pointer;
+}
+
+.image-container img {
+    display: block;
+    width: 100%; /* Make the image responsive */
+    transition: filter 0.3s ease;
+}
+
+.image-container p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    border-radius: 5px;
+    display: none;
+    text-align: center; /* Center the text */
+}
+
+.image-container:hover img {
+    filter: blur(5px);
+}
+
+.image-container:hover p {
+    display: block;
+}
+
+
+/* Tablet styles */
+@media(max-width: 992) {
+    .image-container {
+        max-width: 600px; /* Set a suitable max-width for tablets */
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 576) {
+    .image-container {
+        max-width: 100%; /* Use full width for mobile devices */
+    }
+
+    .image-container p {
+        font-size: 14px; /* Adjust text size for smaller screens */
+        padding: 8px; /* Adjust padding for smaller screens */
+    }
+}

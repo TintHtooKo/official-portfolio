@@ -9,7 +9,7 @@ const removeFile = async(path)=>{
         fileExist = false
     }
     if(fileExist){
-        fs.unlink(path)
+        await fs.unlink(path)
     }
 }
 

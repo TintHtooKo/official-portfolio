@@ -2,8 +2,6 @@ import React, { useContext } from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import App from '../App'
 import Home from '../page/Home'
-import Knowledge from '../page/Knowledge'
-import Detail from '../page/Detail'
 import Login from '../page/Login'
 import Register from '../page/Register'
 import { AuthContext } from '../context/AuthContext'
@@ -19,6 +17,9 @@ import PositionCreate from '../admin/PositionCreate'
 import SkillAdd from '../admin/SkillAdd'
 import SkillEdit from '../admin/SkillEdit'
 import ProjectAdd from '../admin/ProjectAdd'
+import AddCategory from '../admin/AddCategory'
+import AddWebsite from '../admin/AddWebsite'
+import DataEdit from '../admin/DataEdit'
 
 export default function Route() {
     let {user} = useContext(AuthContext)
@@ -31,14 +32,6 @@ export default function Route() {
           {
             path : '/',
             element : <Home/>,
-          },
-          {
-            path : '/knowledge',
-            element : user ? <Knowledge/> : <Login/>,
-          },
-          {
-            path : '/detail/:id',
-            element : user ? <Detail/> : <Login/>,
           },
           {
             path : '/contact',
@@ -95,6 +88,22 @@ export default function Route() {
           {
             path : '/admin-panel/add-project',
             element : isAdmin ? <ProjectAdd/> : <Login/>,
+          },
+          {
+            path : '/admin-panel/add-category',
+            element : isAdmin ? <AddCategory/> : <Login/>,
+          },
+          {
+            path : '/admin-panel/add-website',
+            element : isAdmin ? <AddWebsite/> : <Login/>,
+          },
+          {
+            path : '/admin-panel/edit-website/:id',
+            element : isAdmin ? <AddWebsite/> : <Login/>,
+          },
+          {
+            path : '/admin-panel/edit-data/:id',
+            element : isAdmin ? <DataEdit/> : <Login/>,
           },
           
         ]

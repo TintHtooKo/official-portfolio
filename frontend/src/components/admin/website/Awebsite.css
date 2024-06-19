@@ -1,0 +1,6 @@
+.website{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    margin: 20px 50px;
+}

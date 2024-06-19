@@ -4,6 +4,8 @@ import About from '../components/home/about/About'
 import Skill from '../components/home/skill/Skill'
 import Portfolio from '../components/home/portfolio/Portfolio'
 import ContactMail from '../components/home/contact/contactMail'
+import Website from '../components/home/website/Website'
+
 
 export default function Home() {
   return (
@@ -16,7 +18,10 @@ export default function Home() {
         <hr style={{color : 'gray'}} className=' mt-10' />
         <Portfolio/>
         <hr style={{color : 'gray'}} className=' mt-10' />
+        <Website/>
+        <hr style={{color : 'gray'}} className=' mt-10' />
         <ContactMail/>
+        <hr style={{color : 'gray'}} className=' mt-10' /> 
     </div>
   )
 }

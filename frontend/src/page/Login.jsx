@@ -22,7 +22,7 @@ export default function Login() {
       })
       if(res.status == 200){
         dispatch({type:'LOGIN' , payload : res.data.user})
-        navigate('/knowledge')
+        navigate('/contact')
       }
     } catch (e) {
       setError(e.response.data.msg);
@@ -32,13 +32,13 @@ export default function Login() {
   return (
     <>
     <div className="flex h-screen bg-black min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm ">
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-white">
           Login
         </h2>
       </div>
 
-      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+      <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm mob-admin">
         <form onSubmit={LoginHandler} className="space-y-6" action="#" method="POST">
 
         {!!error && <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">

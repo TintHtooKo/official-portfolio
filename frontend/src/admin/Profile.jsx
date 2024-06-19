@@ -3,6 +3,9 @@ import Aprofile from '../components/admin/profile/Aprofile'
 import Askill from '../components/admin/skill/Askill'
 import './css/Profile.css'
 import Aproject from '../components/admin/project/Aproject'
+import Awebsite from '../components/admin/website/Awebsite'
+
+
 
 export default function Profile() {
   return (
@@ -15,6 +18,8 @@ export default function Profile() {
         <Askill/>
         <hr style={{color : 'gray'}} className=' mt-10' />
         <Aproject/>
+        <hr style={{color : 'gray'}} className=' mt-10' />
+        <Awebsite/>
         <hr style={{color : 'gray'}} className=' mt-10' />
     </div>
   )

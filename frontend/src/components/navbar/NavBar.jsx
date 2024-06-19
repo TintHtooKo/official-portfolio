@@ -57,17 +57,6 @@ export default function NavBar() {
 
         <div className=' menu'>
           <ul>
-              {!!user && <li>
-                <NavLink
-                  to='/knowledge'
-                  className={({ isActive }) =>
-                    isActive ? 'text-yellow-400' : 'text-white hover:text-yellow-400'
-                  }
-                  onClick={handleNavLinkClick}
-                >
-                  Knowledge
-                </NavLink>
-              </li>}
 
               {!!user && <li>
                 <NavLink
@@ -84,19 +73,19 @@ export default function NavBar() {
               {!!isAdmin && <li>
                 <NavLink to='/admin-panel' className={({ isActive }) =>
                     isActive ? 'text-yellow-400' : 'text-white hover:text-yellow-400'
-                  }>AdHome</NavLink>
+                  } onClick={handleNavLinkClick}>AdHome</NavLink>
                 </li>}
 
                 {!!isAdmin && <li>
                 <NavLink to='/admin-panel/message' className={({ isActive }) =>
                     isActive ? 'text-yellow-400' : 'text-white hover:text-yellow-400'
-                  }>Message</NavLink>
+                  } onClick={handleNavLinkClick}>Message</NavLink>
                 </li>}  
 
                 {!!isAdmin && <li>
                 <NavLink to='/admin-panel/profile' className={({ isActive }) =>
                     isActive ? 'text-yellow-400' : 'text-white hover:text-yellow-400'
-                  }>Profile</NavLink>
+                  } onClick={handleNavLinkClick}>Profile</NavLink>
                 </li>}              
           </ul>
            </div>
@@ -138,17 +127,6 @@ export default function NavBar() {
           </div>
           <div className={`mob-menu bg-black ${open ? 'show' : ''}`}>
                 <ul className=' space-y-5'>
-                {!!user && <li>
-                  <NavLink
-                    to='/knowledge'
-                    className={({ isActive }) =>
-                      isActive ? 'text-yellow-400' : 'text-white hover:text-yellow-400'
-                    }
-                    onClick={handleNavLinkClick}
-                  >
-                    Knowledge
-                  </NavLink>
-                </li>}
 
                 {!!user && <li>
                   <NavLink
@@ -185,6 +163,7 @@ export default function NavBar() {
               {!user ? (<li className=' btn'>
                   <NavLink
                     to='/login'
+                    onClick={handleNavLinkClick}
                   >
                     Login
                   </NavLink>

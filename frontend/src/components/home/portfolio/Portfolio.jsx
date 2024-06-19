@@ -44,7 +44,7 @@ export default function Portfolio() {
       </div>
       
         <div className='more'>
-          <a href='https://github.com/tinthtooko'>More</a>
+          <a href='https://github.com/tinthtooko' className=' font-serif'>More</a>
         </div>
     </div>
   )

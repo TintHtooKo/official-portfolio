@@ -7,6 +7,7 @@ export default function Aprofile() {
     let {id} = useParams()
     let [pro,setPro] = useState([])
     let [position,setPosition] = useState([])
+    let [data,setData] = useState([])
 
     useEffect(()=>{
         let fetchPosition = async()=>{
@@ -48,6 +49,14 @@ export default function Aprofile() {
         deleteHandler(id)
     }
 
+    useEffect(()=>{
+        let fetchData = async()=>{
+            let res = await axios.get('/personal')
+            setData(res.data)
+        }
+        fetchData()
+    },[])
+
 
   return (
 
@@ -80,46 +89,23 @@ export default function Aprofile() {
         <Link to='/admin-panel/edit-create' className=' new p-btn ms-5 '>Add New Position</Link>
         </div>
 
-        
-        
-        
+    
+        <hr style={{color : 'gray'}} className=' mt-10' />
+
+        {
+            data && data.map((d,i)=>(
+                <div key={i}>
+                    <h1 className=' text-yellow-300 mx-10 text-center font-bold text-3xl mt-5'>Personal Data</h1>
+                    <p className=' text-white mt-2'>Email : {d.email}</p>
+                    <p className=' text-white mt-2'>Whatsapp : {d.whatsapp}</p>
+                    <p className=' text-white mt-2 mb-5'>Phone : {d.phone}</p>
+                    <Link to={`/admin-panel/edit-data/${d._id}`} className=' btn'>Edit</Link>
+                </div>
+            ))
+        }
+
         </div>
     </div>
 
-
-//     <div className=' p-profile h-screen bg-black'>
-//         <div className=' relative top-28 left-5'>
-//         {
-//             pro && pro.map((p,i)=>(
-//                 <div key={i}>
-//                     <img className=' w-28 h-28 rounded-full' src={import.meta.env.VITE_BACKEND_URL_ACCESS + p.profile}/>
-//                     <p className=' text-white font-bold text-2xl'>{p.name}</p>
-//                     <Link className=' relative top-5 p-btn' to={`/admin-panel/edit-name-image/${p._id}`}>Image and Name Edit</Link>
-//                 </div>
-//             ))
-//         }
-
-// <hr style={{color : 'gray'}} className=' mt-10' />
-
-//         <div className=' p-position flex items-center '>
-//         <div className=' pos absolute top-52'>
-//         {
-//             position && position.map((p,i)=>(
-//                 <div className=' flex space-x-5 mt-10' key={i}>
-//                 <p className=' text-white font-bold text-2xl'>{p.position}</p>
-//                 <Link to={`/admin-panel/edit-position/${p._id}`} className='p-btn'>Edit</Link>
-//                 <button onClick={()=>deletePosition(p._id)} className='delete-btn text-white'>Delete</button>
-//                 </div>
-//             ))
-//         }
-//         </div>
-//         <Link to='/admin-panel/edit-create' className=' new p-btn relative top-10 left-96'>Add New Position</Link>
-//         </div>
-
-        
-        
-        
-//         </div>
-//     </div>
   )
 }
